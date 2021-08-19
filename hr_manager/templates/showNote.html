@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="container">
+    <center>
+        <h1>{{note.summary}}</h1>
+    </center>
+    <div class="note"><h2>{{note.content}}</h2></div>
+</div>
+{% endblock %}

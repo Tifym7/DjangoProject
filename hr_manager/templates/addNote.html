@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="container">
+  <h2>Dear Diary</h2>
+  <form action="/add/" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="summary">Summary of note:</label>
+      <input type="text" class="form-control" id="summary" placeholder="Enter a short summary of note" name="summary" autocomplete="off" required>
+    </div>
+    <div class="form-group">
+        <label for="note">Note:</label>
+        <textarea class="form-control" rows="5" id="note" required name="note"></textarea>
+    </div>
+    <input type="submit" class="btn btn-default" value="Add Note"></input>
+  </form>
+</div>
+{% endblock %}

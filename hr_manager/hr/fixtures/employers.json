@@ -1,0 +1,23 @@
+[
+  {
+    "model": "hr.user",
+    "fields": {
+      "name": "Monica",
+      "password": "monimoni"
+    }
+  },
+  {
+    "model": "hr.user",
+    "fields": {
+      "name": "Doru",
+      "password": "dorudoru"
+    }
+  },
+  {
+    "model": "hr.user",
+    "fields": {
+      "name": "Irina",
+      "password": "iriiri"
+    }
+  }
+]

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+{% load mathfilters %}
+<div class="container">
+  <div class="row">
+    {% for note in notes %}
+    <div class="col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          {{note.summary}}
+
+        </div>
+        <div class="panel-body"><img src= "{% static ''%}default{{note.id|mod:3|add:1}}.png" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer">
+          <form action="/see-note/" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="flag" value={{note.id}} />
+            <button type="submit" class="btn btn-primary">See more</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    </div>
+    <div class="row">
+    <a href="../add-template/">
+      <div class="col-sm-4">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            Add a new note
+          </div>
+          <div class="panel-body"><img src= "{% static 'add.png' %}" class="img-responsive" style="width:100%" alt="Image"></div>
+          <div class="panel-footer"></div>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+{% endblock %}

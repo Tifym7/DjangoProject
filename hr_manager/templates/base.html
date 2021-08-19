@@ -1,0 +1,84 @@
+{% load static %}
+<html lang="en">
+<head>
+  <title>Moni Moni Diary</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    .navbar {
+      margin-bottom: 50px;
+      border-radius: 0;
+    }
+     .jumbotron {
+      margin-bottom: 0;
+      background-image: url("{% static 'jumbotron.jpeg' %}");
+      background-size: 100%;
+      padding-top: 10%;
+      padding-bottom: 15%;
+    }
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+    .add {
+      float : right;
+    }
+    .pizza_name{
+      float: left;
+    }
+    .note {
+      border-style:solid;
+      border-color:#0859c5;
+      border-radius:15px;
+      padding:15px;
+      margin:5%;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="jumbotron">
+  <div class="container text-center">
+  </div>
+</div>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      {% if user %}
+      <a class="navbar-brand" href="../login-success/">{{user.name}}</a>
+      {% else %}
+      <a class="navbar-brand" href="#">Dear Diary</a>
+      {% endif %}
+
+    </div>
+    {% if user %}
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="../login-success/">My Notes</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="../logout/">Log out</a></li>
+      </ul>
+    </div>
+    {% endif %}
+  </div>
+</nav>
+    {% block content %}
+    {% endblock %}
+<br><br>
+
+<footer class="container-fluid text-center">
+
+</footer>
+</body>
+</html>

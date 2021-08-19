@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  <h2>Sign Up</h2>
+  <form action="/register/" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" autocomplete="off" required>
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+    </div>
+    <input type="submit" class="btn btn-default" value="Sign Up"></input>
+    <a href="/login-template/"><button type="button" class="btn btn-default">Log in</button></a>
+  </form>
+</div>
+{% endblock %}
